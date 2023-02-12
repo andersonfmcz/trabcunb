@@ -16,8 +16,8 @@ char *nomeData()
    strcat(str3,"_"); sprintf(str2,"%d",tm.tm_mon+1); strcat(str3,str2);
    strcat(str3,"_");  sprintf(str2,"%d",tm.tm_year+1900); strcat(str3,str2);
    strcat(str3,"__");  sprintf(str2,"%d",tm.tm_hour); strcat(str3,str2);
-   strcat(str3,"_");  sprintf(str2,"%d",tm.tm_min); strcat(str3,str2);
-   strcat(str3,"_");  sprintf(str2,"%d",tm.tm_sec); strcat(str3,str2);
+   strcat(str3,"_");  sprintf(str2,"%d",tm.tm_min+10); strcat(str3,str2);
+//   strcat(str3,"_");  sprintf(str2,"%d",tm.tm_sec); strcat(str3,str2);
    return(str3);
 }
 
