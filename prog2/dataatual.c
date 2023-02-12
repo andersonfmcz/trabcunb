@@ -2,6 +2,20 @@
 #include <time.h>
 #include <string.h>
 
+char*nomeData()
+{
+   char str2[50], str3[50];;
+   sprintf(str2,"%d", tm.tm_mday);
+   strcpy(str3,str2); strcat(str3,"_"); sprintf(str2,"%d",tm.tm_mon+1); strcat(str3,str2);
+   strcat(str3,"_");  sprintf(str2,"%d",tm.tm_year+1900); strcat(str3,str2);
+   strcat(str3,"__");  sprintf(str2,"%d",tm.tm_hour); strcat(str3,str2);
+   strcat(str3,"_");  sprintf(str2,"%d",tm.tm_min); strcat(str3,str2);
+   strcat(str3,"_");  sprintf(str2,"%d",tm.tm_sec); strcat(str3,str2);
+   strcat(nomeData,str3);
+
+   return(nomeData);
+}
+
 int main(void) {
     time_t mytime;
     mytime = time(NULL);
@@ -9,13 +23,7 @@ int main(void) {
 //    printf("Data: %d_%d_%d__%d_%d\n", tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900, tm.tm_min, tm.tm_sec);
     char str1[50];
     strcpy(str1, "imagem_conhecido");
-    char str2[50], str3[50];;
-    sprintf(str2,"%d", tm.tm_mday);
-    strcpy(str3,str2); strcat(str3,"_"); sprintf(str2,"%d",tm.tm_mon+1); strcat(str3,str2);
-    strcat(str3,"_");  sprintf(str2,"%d",tm.tm_year+1900); strcat(str3,str2);
-    strcat(str3,"__");  sprintf(str2,"%d",tm.tm_min); strcat(str3,str2);
-    strcat(str3,"_");  sprintf(str2,"%d",tm.tm_sec); strcat(str3,str2);
-    strcat(str1,str3);
+    strcat(str1,nomeData);
     strcat(str1,".jpg");
     printf("Nome do arquivo: %s\n", str1);
 }
