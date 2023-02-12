@@ -8,7 +8,7 @@ char *nomeData()
    mytime = time(NULL);
    struct tm tm = *localtime(&mytime);
    char str2[50], str3[50];
-   char *auxR;
+   char *auxR = malloc(sizeof(char) * 50);
    sprintf(str2,"%d", tm.tm_mday);
    strcpy(str3,str2); strcat(str3,"_"); sprintf(str2,"%d",tm.tm_mon+1); strcat(str3,str2);
    strcat(str3,"_");  sprintf(str2,"%d",tm.tm_year+1900); strcat(str3,str2);
