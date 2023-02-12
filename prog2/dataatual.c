@@ -9,6 +9,6 @@ int main(void) {
     char str1[50];
     strcpy(str1, "imagem_conhecido");
     char str2[50];
-    strcpy(str2, tm.tm_mday);
+    sprintf(str2,"%d", tm.tm_mday);
     printf("Data: %s\n", str2);
 }
