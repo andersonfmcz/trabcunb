@@ -16,5 +16,6 @@ int main(void) {
     strcat(str3,"__");  sprintf(str2,"%d",tm.tm_min); strcat(str3,str2);
     strcat(str3,"_");  sprintf(str2,"%d",tm.tm_sec); strcat(str3,str2);
     strcat(str1,str3);
-    printf("Data: %s\n", str1);
+    strcat(str1,".jpg");
+    printf("Nome do arquivo: %s\n", str1);
 }
