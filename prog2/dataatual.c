@@ -11,7 +11,8 @@ char *nomeData()
    char str2[50];
    char *str3 = malloc(sizeof(char) * 50);
    sprintf(str2,"%d", tm.tm_mday);
-   strcpy(str3,str2); strcat(str3,"_"); sprintf(str2,"%d",tm.tm_mon+1); strcat(str3,str2);
+   strcpy(str3,"_"); strcat(str3,str2);
+   strcat(str3,"_"); sprintf(str2,"%d",tm.tm_mon+1); strcat(str3,str2);
    strcat(str3,"_");  sprintf(str2,"%d",tm.tm_year+1900); strcat(str3,str2);
    strcat(str3,"__");  sprintf(str2,"%d",tm.tm_hour); strcat(str3,str2);
    strcat(str3,"_");  sprintf(str2,"%d",tm.tm_min); strcat(str3,str2);
