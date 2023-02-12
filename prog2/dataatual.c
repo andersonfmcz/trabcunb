@@ -14,9 +14,8 @@ char*nomeData()
    strcat(str3,"__");  sprintf(str2,"%d",tm.tm_hour); strcat(str3,str2);
    strcat(str3,"_");  sprintf(str2,"%d",tm.tm_min); strcat(str3,str2);
    strcat(str3,"_");  sprintf(str2,"%d",tm.tm_sec); strcat(str3,str2);
-   strcat(nomeData,str3);
 
-   return(nomeData);
+   return(str3);
 }
 
 int main(void) {
