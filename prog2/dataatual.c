@@ -8,16 +8,15 @@ char *nomeData()
    time_t mytime;
    mytime = time(NULL);
    struct tm tm = *localtime(&mytime);
-   char str2[50], str3[50];
-   char *auxR = malloc(sizeof(char) * 50);
+   char str2[50];
+   char *str3 = malloc(sizeof(char) * 50);
    sprintf(str2,"%d", tm.tm_mday);
    strcpy(str3,str2); strcat(str3,"_"); sprintf(str2,"%d",tm.tm_mon+1); strcat(str3,str2);
    strcat(str3,"_");  sprintf(str2,"%d",tm.tm_year+1900); strcat(str3,str2);
    strcat(str3,"__");  sprintf(str2,"%d",tm.tm_hour); strcat(str3,str2);
    strcat(str3,"_");  sprintf(str2,"%d",tm.tm_min); strcat(str3,str2);
    strcat(str3,"_");  sprintf(str2,"%d",tm.tm_sec); strcat(str3,str2);
-   strcpy(auxR,str3);
-   return(auxR);
+   return(str3);
 }
 
 int main(void) {
