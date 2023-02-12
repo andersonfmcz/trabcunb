@@ -2,21 +2,21 @@
 #include <time.h>
 #include <string.h>
 
-char nomeData[50]()
+char *nomeData()
 {
    time_t mytime;
    mytime = time(NULL);
    struct tm tm = *localtime(&mytime);
    char str2[50], str3[50];
-
+   char *auxR;
    sprintf(str2,"%d", tm.tm_mday);
    strcpy(str3,str2); strcat(str3,"_"); sprintf(str2,"%d",tm.tm_mon+1); strcat(str3,str2);
    strcat(str3,"_");  sprintf(str2,"%d",tm.tm_year+1900); strcat(str3,str2);
    strcat(str3,"__");  sprintf(str2,"%d",tm.tm_hour); strcat(str3,str2);
    strcat(str3,"_");  sprintf(str2,"%d",tm.tm_min); strcat(str3,str2);
    strcat(str3,"_");  sprintf(str2,"%d",tm.tm_sec); strcat(str3,str2);
-
-   return(str3);
+   strcpy(auxR,str3);
+   return(auxR);
 }
 
 int main(void) {
@@ -25,6 +25,7 @@ int main(void) {
 //    nomeArq = nomeData();
     strcpy(str1, "imagem_conhecido");
   //  strcat(str1, nomeArq);
+    strcat(str1, nomeData());
     strcat(str1,".jpg");
     printf("Nome do arquivo: %s\n", str1);
 }
