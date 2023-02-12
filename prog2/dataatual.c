@@ -10,5 +10,5 @@ int main(void) {
     strcpy(str1, "imagem_conhecido");
     char str2[50];
     strcpy(str2, tm.tm_mday);
-    printf("Data: %d\n", str2);
+    printf("Data: %s\n", str2);
 }
