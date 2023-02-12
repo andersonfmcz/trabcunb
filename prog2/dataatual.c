@@ -21,7 +21,7 @@ char *nomeData()
 }
 
 int main(void) {
-    char str1[150], nomeArq[50];
+    char str1[150];
     strcpy(str1, "/home/alisson/Documentos/Trabalho_Final/imagem_conhecido");
     strcat(str1, nomeData());
     strcat(str1,".jpg");
