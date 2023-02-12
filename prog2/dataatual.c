@@ -21,11 +21,8 @@ char *nomeData()
 }
 
 int main(void) {
-//    printf("Data: %d_%d_%d__%d_%d\n", tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900, tm.tm_min, tm.tm_sec);
-    char str1[50], nomeArq[50];
-//    nomeArq = nomeData();
-    strcpy(str1, "imagem_conhecido");
-  //  strcat(str1, nomeArq);
+    char str1[150], nomeArq[50];
+    strcpy(str1, "/home/alisson/Documentos/Trabalho_Final/imagem_conhecido");
     strcat(str1, nomeData());
     strcat(str1,".jpg");
     printf("Nome do arquivo: %s\n", str1);
