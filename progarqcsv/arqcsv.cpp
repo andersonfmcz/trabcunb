@@ -1,34 +1,37 @@
 #include <iostream>
-#include <fstream>   //used for file handling
-#include <string>    //used for strings
-#include <cstring>    //used for strings
+#include <mutex>
+#include <fstream>
 
-using namespace std;
-/*Everytime before running this program delete previously created 'Student_data.csv' file to avoid buffer overflow errors*/
-int main()
-{
-    char name[50],college[50],class_of_student[50];
-    
-    fstream fout;
-    
-    // opening an existing csv file or creating a new csv file
-    fout.open("Student_data.csv", ios::out);
-    fout<<"Name"<<","<<"College"<<","<<"Class"<<","<<"Roll no"<<"\n";
-    
-    cout<<"Enter details of 5 students=>";
-        strcpy(name,"nome"); strcpy(college,"colegio"); strcpy(class_of_student, "estudante");
-    
-        fout<<name<<","<<college<<","<<class_of_student<<"\n";    // writing data to a csv file
-    fout.close();   // closing csv file
-    fstream fin;
-    string data;
-    cout<<"\nCSV file has been successfully created..!!";
-    cout<<"\n\nDisplaying the content of CSV file=>\n\n";
-    
-    // opening existing csv file in read mode        
-    fin.open("Student_data.csv", ios::in);
-    getline(fin,data);
-    cout<<data<<"\n";    
-    
+std::mutex logMutex;
+
+bool fileExists(std::string& fileName) {
+    return static_cast<bool>(std::ifstream(fileName));
+}
+
+template <typename filename, typename T1, typename T2, typename T3>
+bool writeCsvFile(filename &fileName, T1 column1, T2 column2, T3 column3) {
+    std::lock_guard<std::mutex> csvLock(logMutex);
+    std::fstream file;
+    file.open (fileName, std::ios::out | std::ios::app);
+    if (file) {
+        file << "\"" << column1 << "\",";
+        file << "\"" << column2 << "\",";
+        file << "\"" << column3 << "\"";
+        file <<  std::endl;
+        return true;
+    } else {
+        return false;
+    }
+}
+
+int main() {
+    std::string csvFile = "logfile2.csv";
+    std::string naam = "Hallo";
+    if(!fileExists(csvFile))
+        writeCsvFile(csvFile, "header1", "header2", "header3");
+
+        if (!writeCsvFile(csvFile, i, naam, static_cast<float>(i * 3.5))) {
+            std::cerr << "Failed to write to file: " << csvFile << "\n";
+        }
     return 0;
 }
