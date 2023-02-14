@@ -17,7 +17,7 @@ bool writeCsvFile(filename &fileName, T1 coluna1, T2 coluna2, T3 coluna3, T4 col
     if (file) {
         file << "\"" << coluna1 << "\",";
         file << "\"" << coluna2 << "\",";
-        file << "\"" << coluna3 << "\"";
+        file << "\"" << coluna3 << "\",";
         file << "\"" << coluna4 << "\"";
         file <<  std::endl;
         return true;
@@ -34,7 +34,7 @@ int main() {
     if(!fileExists(csvFile))
         writeCsvFile(csvFile, campo1, "Data", "Local", "pathImg");
 
-        if (!writeCsvFile(csvFile, 0, naam, static_cast<float>(0 * 3.5), 0)) {
+        if (!writeCsvFile(csvFile, "conhecido", "13_02_2023", "Sala", "/arquivos/alisson")) {
             std::cerr << "Failed to write to file: " << csvFile << "\n";
         }
     return 0;
