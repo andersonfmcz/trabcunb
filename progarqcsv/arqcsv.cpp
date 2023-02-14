@@ -15,12 +15,10 @@ int main()
     fout<<"Name"<<","<<"College"<<","<<"Class"<<","<<"Roll no"<<"\n";
     
     cout<<"Enter details of 5 students=>";
-    for(int i=1; i<=5; i++)
-    {
-        cout<<"\nName of student "<<i<<" :";
-        getline(cin,name);
+ //   for(int i=1; i<=5; i++)
+ //   {
+        name = "nome";
         cout<<"College of student "<<i<<" :";
-        getline(cin,college);
         cout<<"Class of student "<<i<<" :";
         getline(cin,class_of_student);
         cout<<"Roll no of student "<<i<<" :";
