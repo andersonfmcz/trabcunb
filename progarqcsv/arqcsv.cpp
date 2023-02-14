@@ -28,7 +28,7 @@ bool addArqCSV(filename &fileName, T1 coluna1, T2 coluna2, T3 coluna3, T4 coluna
 int main() {
     std::string csvFile = "registrocam.csv";
     if(!fileExists(csvFile))
-        addArqCSV(csvFile, campo1, "Data", "Local", "pathImg");
+        addArqCSV(csvFile, "Nome", "Data", "Local", "pathImg");
 
         if (!addArqCSV(csvFile, "conhecido", "13_02_2023", "Sala", "/arquivos/alisson")) {
             std::cerr << "Failed to write to file: " << csvFile << "\n";
