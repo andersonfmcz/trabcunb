@@ -1,6 +1,6 @@
-#include<iostream>
-#include<fstream>   //used for file handling
-#include<string>    //used for strings
+#include <iostream>
+#include <fstream>   //used for file handling
+#include <string>    //used for strings
 #include <stdio.h>
 
 using namespace std;
@@ -16,7 +16,7 @@ int main()
     fout<<"Name"<<","<<"College"<<","<<"Class"<<","<<"Roll no"<<"\n";
     
     cout<<"Enter details of 5 students=>";
-        str(name,"nome"); str(college,"colegio"); str(class_of_student, "estudante");
+        strcpy(name,"nome"); strcpy(college,"colegio"); strcpy(class_of_student, "estudante");
     
         fout<<name<<","<<college<<","<<class_of_student<<"\n";    // writing data to a csv file
     fout.close();   // closing csv file
