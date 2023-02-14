@@ -27,7 +27,7 @@ int main()
     
     // opening existing csv file in read mode        
     fin.open("Student_data.csv", ios::in);
-    
+    getline(fin,data);    
     
     return 0;
 }
