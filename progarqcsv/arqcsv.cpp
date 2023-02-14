@@ -32,7 +32,7 @@ int main() {
     char campo1[10];
     strcpy(campo1,"NOME");
     if(!fileExists(csvFile))
-        writeCsvFile(csvFile, campo1, "header2", "header3");
+        writeCsvFile(csvFile, "ccampo1", "header2", "header3");
 
         if (!writeCsvFile(csvFile, 0, naam, static_cast<float>(0 * 3.5))) {
             std::cerr << "Failed to write to file: " << csvFile << "\n";
