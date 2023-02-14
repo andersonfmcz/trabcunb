@@ -1,13 +1,12 @@
 #include <iostream>
 #include <fstream>   //used for file handling
 #include <string>    //used for strings
-#include <cstring>    //used for strings
 
 using namespace std;
 /*Everytime before running this program delete previously created 'Student_data.csv' file to avoid buffer overflow errors*/
 int main()
 {
-    string name,college,class_of_student;
+    char name[50],college[50],class_of_student[50];
     
     fstream fout;
     
