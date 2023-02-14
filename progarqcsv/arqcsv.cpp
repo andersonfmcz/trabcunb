@@ -1,6 +1,8 @@
 #include<iostream>
 #include<fstream>   //used for file handling
 #include<string>    //used for strings
+#include <stdio.h>
+
 using namespace std;
 /*Everytime before running this program delete previously created 'Student_data.csv' file to avoid buffer overflow errors*/
 int main()
