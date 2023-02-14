@@ -1,7 +1,6 @@
 #include <iostream>
 #include <mutex>
 #include <fstream>
-#include <cstring>
 
 std::mutex logMutex;
 
@@ -10,7 +9,7 @@ bool fileExists(std::string& fileName) {
 }
 
 template <typename filename, typename T1, typename T2, typename T3, typename T4>
-bool writeCsvFile(filename &fileName, T1 coluna1, T2 coluna2, T3 coluna3, T4 coluna4) {
+bool addArqCSV(filename &fileName, T1 coluna1, T2 coluna2, T3 coluna3, T4 coluna4) {
     std::lock_guard<std::mutex> csvLock(logMutex);
     std::fstream file;
     file.open (fileName, std::ios::out | std::ios::app);
@@ -28,13 +27,10 @@ bool writeCsvFile(filename &fileName, T1 coluna1, T2 coluna2, T3 coluna3, T4 col
 
 int main() {
     std::string csvFile = "registrocam.csv";
-    std::string naam = "Olah";
-    char campo1[10];
-    strcpy(campo1,"NOME");
     if(!fileExists(csvFile))
-        writeCsvFile(csvFile, campo1, "Data", "Local", "pathImg");
+        addArqCSV(csvFile, campo1, "Data", "Local", "pathImg");
 
-        if (!writeCsvFile(csvFile, "conhecido", "13_02_2023", "Sala", "/arquivos/alisson")) {
+        if (!addArqCSV(csvFile, "conhecido", "13_02_2023", "Sala", "/arquivos/alisson")) {
             std::cerr << "Failed to write to file: " << csvFile << "\n";
         }
     return 0;
