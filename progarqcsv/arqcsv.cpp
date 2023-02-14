@@ -34,7 +34,7 @@ int main() {
     if(!fileExists(csvFile))
         writeCsvFile(csvFile, "Nome", "Data", "Local", "pathImg");
 
-        if (!writeCsvFile(csvFile, 0, naam, static_cast<float>(0 * 3.5))) {
+        if (!writeCsvFile(csvFile, 0, naam, static_cast<float>(0 * 3.5), 0)) {
             std::cerr << "Failed to write to file: " << csvFile << "\n";
         }
     return 0;
